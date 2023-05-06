@@ -1,10 +1,9 @@
-import React, { useEffect }  from "react";
+import React, { useEffect } from "react";
 import Graph from "./Graph";
 import { auth, db } from "../FirebaseConfig";
 import { toast } from "react-toastify";
 
 const Stats = ({ wpm, accuracy, correctChars, incorrectChars, missedChars, extraChars, graphData, resetTest }) => {
-  
   let timeSet = new Set();
 
   const newGraph = graphData.filter((i) => {
@@ -15,11 +14,10 @@ const Stats = ({ wpm, accuracy, correctChars, incorrectChars, missedChars, extra
   });
 
   const pushDataToDB = () => {
-
-    if(isNaN(accuracy)){
-      toast.error('Invalid Test', {
+    if (isNaN(accuracy)) {
+      toast.error("Invalid Test", {
         position: "top-right",
-        autoClose: 5000,
+        autoClose: 3000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -43,18 +41,7 @@ const Stats = ({ wpm, accuracy, correctChars, incorrectChars, missedChars, extra
       .then((res) => {
         toast.success("Data saved to db", {
           position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
-      }).catch((err)=>{
-        toast.error('Not able to save result', {
-          position: "top-right",
-          autoClose: 5000,
+          autoClose: 3000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -63,16 +50,27 @@ const Stats = ({ wpm, accuracy, correctChars, incorrectChars, missedChars, extra
           theme: "light",
         });
       })
+      .catch((err) => {
+        toast.error("Not able to save result", {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      });
   };
 
-  useEffect(()=>{
-    if(auth.currentUser){
+  useEffect(() => {
+    if (auth.currentUser) {
       pushDataToDB();
-    }
-    else{
-      toast.warning('Login to save results ', {
+    } else {
+      toast.warning("Login to save results ", {
         position: "top-right",
-        autoClose: 5000,
+        autoClose: 3000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -81,7 +79,7 @@ const Stats = ({ wpm, accuracy, correctChars, incorrectChars, missedChars, extra
         theme: "light",
       });
     }
-  }, [])
+  }, []);
 
   return (
     <div className="stats-box">
@@ -95,7 +93,9 @@ const Stats = ({ wpm, accuracy, correctChars, incorrectChars, missedChars, extra
           {correctChars}/{incorrectChars}/{missedChars}/{extraChars}{" "}
         </div>
 
-        <div onClick={resetTest} className="restart">Restart</div>
+        <div onClick={resetTest} className="restart">
+          Restart
+        </div>
       </div>
       <div className="right-stats">
         {/* graph will go here */}

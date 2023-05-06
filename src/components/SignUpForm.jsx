@@ -3,9 +3,9 @@ import React, { useState } from "react";
 import { useTheme } from "../Context/themeContext";
 import { auth } from "../FirebaseConfig";
 import { toast } from "react-toastify";
-import errorMapping from '../Utils/errorMapping'
+import errorMapping from "../Utils/errorMapping";
 
-const SignUpForm = ( {handleClose} ) => {
+const SignUpForm = ({ handleClose }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -15,7 +15,7 @@ const SignUpForm = ( {handleClose} ) => {
     if (!email || !password || !confirmPassword) {
       toast.warning("🦄 Fill all details", {
         position: "top-right",
-        autoClose: 5000,
+        autoClose: 3000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -26,9 +26,9 @@ const SignUpForm = ( {handleClose} ) => {
       return;
     }
     if (password !== confirmPassword) {
-      toast.warning("🦄 password is not same", {
+      toast.warning("🦄 Password Not Matched", {
         position: "top-right",
-        autoClose: 5000,
+        autoClose: 3000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -44,7 +44,7 @@ const SignUpForm = ( {handleClose} ) => {
       .then((res) => {
         toast.success("🦄 Signup Successfully", {
           position: "top-right",
-          autoClose: 5000,
+          autoClose: 3000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -55,9 +55,9 @@ const SignUpForm = ( {handleClose} ) => {
         handleClose();
       })
       .catch((err) => {
-        toast.error(errorMapping[err.code] || 'some error occured', {
+        toast.error(errorMapping[err.code] || "some error occured", {
           position: "top-right",
-          autoClose: 5000,
+          autoClose: 3000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,

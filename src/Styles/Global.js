@@ -6,11 +6,13 @@ export const GlobalStyles = createGlobalStyle`
     padding: 0;
     box-sizing: boder-box;
 }
+
 body{
     background: ${({ theme }) => theme.background};
     color: ${({ theme }) => theme.textColor};
     transition: all 0.25s linear;
 }
+
 .canvas{
     display: grid;
     min-height: 90vh;
@@ -100,15 +102,12 @@ body{
     transform: scale(1.3);
 }
 .restart:hover{
-    color: #00ff00;
     cursor: pointer;
-    transform: scale(1.15);
+    transform: scale(1.1);
 }
 
-
-
 .footer{
-    width: 1000px;
+    width: 75vw;
     display:flex;
     justify-content: space-between;
     margin: 0 auto;
@@ -116,7 +115,7 @@ body{
 
 .stats-box{
     display: flex;
-    width: 1000px;
+    width: 75vw;
     height: auto;
     margin-left: auto;
     margin-right: auto;
@@ -141,28 +140,27 @@ body{
 }
 
 .header{
-    width: 1000px;
+    width: 75vw;
     display: flex;
     justify-content: space-between;
     margin: 0 auto;
 }
 
 .user-profile{
-    width: 1000px;
+    width: 80vw;
     margin: auto;
     display: flex;
-    height: 15rem;
+    justify-content: center;
+    align-text: center;
     background: ${({ theme }) => theme.typeBoxText};
     border-radius: 20px;
     padding: 1rem;
-    justify-content: center;
-    align-text: center;
 
 }
+
 .user{
     width: 50%;
     display: flex;
-    margin: 30px 0;
     padding: 1rem;
     font-size: 1.5rem;
     border-right: 2px solid;
@@ -171,7 +169,6 @@ body{
 .info{
     width: 60%;
     padding: 1rem;
-    margin-top: 1rem;
 }
 
 .picture{
@@ -180,7 +177,7 @@ body{
 
 .total-tests{
     width:50%;
-    font-size: 3rem;
+    font-size: 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -188,8 +185,9 @@ body{
 
 .table, .graph-user-page{
     margin: auto;
-    width: 1000px;
+    width: 75vw;
 }
+
 .center-of-screen{
     display: flex;
     min-height:100vh;
@@ -205,16 +203,13 @@ padding: 0 5px;
 
 .restart{
     font-size: 40px;
+    margin: 55px auto 5px;
+    padding: 5px 0;
     border:2px solid;
-    margin:5px auto;
-    margin-top:50px;
+    border-radius: 15px ;
     cursor: pointer;
-    border-radius: 20px ;
  }
 
-.skipped{
-     color: grey;
-   }
 
 ${"" /* ------------------------------------------------------------------------------- */}
 
@@ -245,43 +240,6 @@ ${"" /* ------------------------------------------------------------------------
   0%     { --angle: 0deg; }
   100%   { --angle: 360deg;
   }
-}
-
-${"" /* //----------------------------------------------------------------------------------------------- */}
-
-.block {
-	position: relative;
-	background: linear-gradient(0deg, #000, #272727);
-}
-
-.block:before, .block:after {
-	content: '';
-	position: absolute;
-	left: -2px;
-	top: -2px;
-	background: linear-gradient(45deg, #fb0094, #0000ff, #00ff00,#ffff00, #ff0000, #fb0094, 
-		#0000ff, #00ff00,#ffff00, #ff0000);
-	background-size: 400%;
-	width: calc(100% + 4px);
-	height: calc(100% + 4px);
-	z-index: -1;
-	animation: steam 20s linear infinite;
-}
-
-@keyframes steam {
-	0% {
-		background-position: 0 0;
-	}
-	50% {
-		background-position: 400% 0;
-	}
-	100% {
-		background-position: 0 0;
-	}
-}
-
-.block:after {
-	filter: blur(50px);
 }
 
 

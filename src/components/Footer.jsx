@@ -4,10 +4,12 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import { themeOptions } from "../Utils/themeOption";
 import Select from "react-select";
 import { useTheme } from "../Context/themeContext";
+import DocumentScannerIcon from "@mui/icons-material/DocumentScanner";
+import { Link } from "@mui/material";
 import Tippy from "@tippyjs/react";
 
 const Footer = () => {
-  const { theme, setTheme } = useTheme();
+  const { theme, setTheme, defaultValue } = useTheme();
 
   const handleChange = (e) => {
     setTheme(e.value);
@@ -18,24 +20,30 @@ const Footer = () => {
     <div className="footer">
       <div className="links">
         <Tippy content="Github">
-          <a href="https://github.com" target="blank">
+          <Link href="https://github.com" target="blank" underline="none" color="inherit">
             <GitHubIcon />
-          </a>
+          </Link>
         </Tippy>
         <Tippy content="LinkedIn">
-          <a href="https://www.linkedin.com/in" target="blank">
+          <Link href="https://www.linkedin.com/in" target="blank" underline="none" color="inherit">
             <LinkedInIcon />
-          </a>
+          </Link>
+        </Tippy>
+        <Tippy content="Docunment">
+          <Link href="https://docs.google.com/" target="blank" underline="none" color="inherit">
+            <DocumentScannerIcon />
+          </Link>
         </Tippy>
       </div>
+
       <div className="themeButton">
         <Select
           onChange={handleChange}
           options={themeOptions}
           menuPlacement="top"
-          defaultValue={{ label: theme.label, value: theme }}
+          defaultValue={{ label: defaultValue.label, value: defaultValue }}
           styles={{
-            control: (styles) => ({ ...styles, backgroundColor: theme.background }),
+            control: (styles) => ({ ...styles, backgroundColor: theme.background, color: theme.textColor }),
             menu: (styles) => ({ ...styles, backgroundColor: theme.background }),
             option: (styles, { isFocused }) => {
               return {
@@ -45,6 +53,7 @@ const Footer = () => {
                 cursor: "pointer",
               };
             },
+            singleValue: (styles) => ({ ...styles, color: theme.title }),
           }}
         />
       </div>

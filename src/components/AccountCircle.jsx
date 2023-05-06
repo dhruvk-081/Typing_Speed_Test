@@ -20,7 +20,6 @@ const AccountCircle = () => {
   const [user] = useAuthState(auth);
   const navigate = useNavigate();
 
-  const googleProvider = new GoogleAuthProvider();
 
   const handleModalOpen = () => {
     if (user) {
@@ -44,7 +43,7 @@ const AccountCircle = () => {
       .then((res) => {
         toast.success("🦄 Logged Out Successfully", {
           position: "top-right",
-          autoClose: 5000,
+          autoClose: 3000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -56,7 +55,7 @@ const AccountCircle = () => {
       .catch((err) => {
         toast.error("Not able to Logout", {
           position: "top-right",
-          autoClose: 5000,
+          autoClose: 3000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -68,11 +67,13 @@ const AccountCircle = () => {
   };
 
   const handleGoogleSignIn = () => {
+    
+  const googleProvider = new GoogleAuthProvider();
     signInWithPopup(auth, googleProvider)
       .then((res) => {
         toast.success("🦄 Login Successfully", {
           position: "top-right",
-          autoClose: 5000,
+          autoClose: 3000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -85,7 +86,7 @@ const AccountCircle = () => {
       .catch((err) => {
         toast.error(errorMapping[err.code] || "Not able to use google authentication", {
           position: "top-right",
-          autoClose: 5000,
+          autoClose: 3000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -98,8 +99,8 @@ const AccountCircle = () => {
 
   return (
     <div>
-        <AccountCircleIcon onClick={handleModalOpen} user={user} />
-      {user && <LogoutIcon onClick={logout} />}
+      <AccountCircleIcon fontSize="large" onClick={handleModalOpen} />
+      {user && <LogoutIcon onClick={logout} fontSize="large" />}
 
       <Modal
         open={open}

@@ -3,9 +3,9 @@ import React, { useState } from "react";
 import { useTheme } from "../Context/themeContext";
 import { auth } from "../FirebaseConfig";
 import { toast } from "react-toastify";
-import errorMapping from '../Utils/errorMapping'
+import errorMapping from "../Utils/errorMapping";
 
-const LoginForm = ( {handleClose} ) => {
+const LoginForm = ({ handleClose }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { theme } = useTheme();
@@ -14,7 +14,7 @@ const LoginForm = ( {handleClose} ) => {
     if (!email || !password) {
       toast.warning("🦄 Fill all details", {
         position: "top-right",
-        autoClose: 5000,
+        autoClose: 3000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -30,7 +30,7 @@ const LoginForm = ( {handleClose} ) => {
       .then((res) => {
         toast.success("🦄 User Logged In", {
           position: "top-right",
-          autoClose: 5000,
+          autoClose: 3000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -41,9 +41,9 @@ const LoginForm = ( {handleClose} ) => {
         handleClose();
       })
       .catch((err) => {
-        toast.error(errorMapping[err.code] || 'some error occured', {
+        toast.error(errorMapping[err.code] || "some error occured", {
           position: "top-right",
-          autoClose: 5000,
+          autoClose: 3000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
