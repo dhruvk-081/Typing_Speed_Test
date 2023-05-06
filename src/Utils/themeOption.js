@@ -26,14 +26,14 @@ const s80_Dark = {
     typeBoxText: '#99d6ea'
 }
 
-const e8008 = {
-    label : '8008',
+const Olive_Brown = {
+    label : 'Olive_Brown',
     background: '#333a45',
     textColor: '#f44c7f',
     typeBoxText: '#e9ecf0'
 }
-const L9009 = {
-    label : 'L9009',
+const SunSky = {
+    label : 'SunSky',
     background: '#eeebe2',
     textColor: '#080909',
     typeBoxText: '#99947f'
@@ -82,8 +82,8 @@ const desert = {
 export const themeOptions = [
     {label : 'Dark', value: darkTheme},
     {label : 's80_Dark', value: s80_Dark},
-    {label : '8008', value: e8008},
-    {label : 'L9009', value: L9009},
+    {label : 'Olive_Brown', value: Olive_Brown},
+    {label : 'SunSky', value: SunSky},
     {label : 'aurora', value: aurora},
     {label : 'beach', value: beach},
     {label : 'bingsu', value: bingsu},
