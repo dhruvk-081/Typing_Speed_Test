@@ -6,6 +6,7 @@ import { CircularProgress } from "@mui/material";
 import TableUserData from "../components/TableUserData";
 import Graph from "../components/Graph";
 import UserInfo from "../components/UserInfo";
+import Header from "../components/Header";
 
 const UserPage = () => {
   const [data, setData] = useState([]);
@@ -46,14 +47,15 @@ const UserPage = () => {
   if (loading || dataLoading) {
     return (
       <div className="center-of-screen">
-        <CircularProgress size={200} />;
+        <CircularProgress size={200} />
       </div>
     );
   }
 
   return (
     <div className="canvas">
-      <UserInfo totalTestTaken={data.length} />
+      <Header />
+      <UserInfo totalTestTaken={data.length} user={user} />
       <div className="graph-user-page">
         <Graph graphData={graphData} />
       </div>

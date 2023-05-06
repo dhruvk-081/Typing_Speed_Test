@@ -4,7 +4,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import { themeOptions } from "../Utils/themeOption";
 import Select from "react-select";
 import { useTheme } from "../Context/themeContext";
-import { Link } from "react-router-dom";
+import Tippy from "@tippyjs/react";
 
 const Footer = () => {
   const { theme, setTheme } = useTheme();
@@ -17,12 +17,16 @@ const Footer = () => {
   return (
     <div className="footer">
       <div className="links">
-        <Link>
-          <GitHubIcon />
-        </Link>
-        <Link>
-          <LinkedInIcon />
-        </Link>
+        <Tippy content="Github">
+          <a href="https://github.com" target="blank">
+            <GitHubIcon />
+          </a>
+        </Tippy>
+        <Tippy content="LinkedIn">
+          <a href="https://www.linkedin.com/in" target="blank">
+            <LinkedInIcon />
+          </a>
+        </Tippy>
       </div>
       <div className="themeButton">
         <Select
