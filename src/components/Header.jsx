@@ -1,25 +1,21 @@
 import React from "react";
 import AccountCircle from "./AccountCircle";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "../FirebaseConfig";
 import { Link } from "react-router-dom";
+import { useTheme } from "../Context/themeContext";
 
 const Header = () => {
-  const [user] = useAuthState(auth);
+  const { theme } = useTheme();
 
   return (
     <div className="header">
-
-      <Link to="/" >
-        <div className="logo">
-          <img width="70px" src="./icon.png" alt="Logo" />
-        </div>
+      <Link to="/" className="link">
+        <img width="70px" src="./icon.png" alt="Logo" />
+        <span>Typing Test</span>
       </Link>
 
       <div className="user-icon">
         <AccountCircle />
       </div>
-
     </div>
   );
 };

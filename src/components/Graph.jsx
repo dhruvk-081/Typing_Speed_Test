@@ -6,7 +6,6 @@ import { useTheme } from "../Context/themeContext";
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
 const Graph = ({ graphData }) => {
-
   const { theme } = useTheme();
 
   return (

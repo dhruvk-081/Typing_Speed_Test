@@ -20,7 +20,6 @@ const AccountCircle = () => {
   const [user] = useAuthState(auth);
   const navigate = useNavigate();
 
-
   const handleModalOpen = () => {
     if (user) {
       navigate("/user");
@@ -67,8 +66,7 @@ const AccountCircle = () => {
   };
 
   const handleGoogleSignIn = () => {
-    
-  const googleProvider = new GoogleAuthProvider();
+    const googleProvider = new GoogleAuthProvider();
     signInWithPopup(auth, googleProvider)
       .then((res) => {
         toast.success("🦄 Login Successfully", {

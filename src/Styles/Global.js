@@ -210,6 +210,15 @@ padding: 0 5px;
     cursor: pointer;
  }
 
+.link{
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.6rem;
+    color: ${({ theme }) => theme.textColor}; 
+    font-size: 3rem;
+}
 
 ${"" /* ------------------------------------------------------------------------------- */}
 
