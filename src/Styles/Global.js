@@ -220,6 +220,25 @@ padding: 0 5px;
     font-size: 3rem;
 }
 
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border: 1px solid grey;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: ${({ theme }) => theme.textColor};
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: ${({ theme }) => theme.textColor};
+}
 ${"" /* ------------------------------------------------------------------------------- */}
 
 
