@@ -194,7 +194,7 @@ const TypingBox = () => {
       ) : (
         <>
           <UpperMenu countDown={countDown} />
-          <div className="type-box" onClick={focusInput}>
+          <div className="type-box moving-border" onClick={focusInput}>
             <div className="words">
               {wordsArray.map((word, index) => (
                 <span className="word" ref={wordsSpanRef[index]}>

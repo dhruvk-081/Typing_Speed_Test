@@ -12,24 +12,21 @@ body{
     transition: all 0.25s linear;
 }
 .canvas{
-    border: 1px solid blue;
     display: grid;
-    min-height: 100vh;
+    min-height: 90vh;
     grid-auto-flow: row;
     grid-template-row: auto 1fr auto;
     gap: 0.5rem;
     padding: 2em;
-    ${"" /* width: 100vw; */}
     align-items: center;
     text-align:center;
 }
 
 .type-box{
+    border-radius: 10px;
+    padding: 30px;
     max-width: 75vw;
-    height: 300px;
-    margin-left: auto;
-    margin-right: auto;
-    overflow: hidden;
+    margin: 20px auto;
 }
 .words{
     font-size: 32px;
@@ -43,7 +40,7 @@ body{
 
 }
 .hidden-input{
-    border: 1px solid tomato;
+    border: 1px solid red;
     opacity: 0;
 }
 
@@ -84,9 +81,8 @@ body{
 
 .upper-menu{
     display: flex;
-    width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
+    width: 75vw;
+    margin: 0 auto;
     font-size: 1.35rem;
     justify-content: space-between;
     padding: 0.5rem;
@@ -94,12 +90,18 @@ body{
 
 .modes{
     display: flex;
-    gap: 0.4rem;
+    gap: 0.6rem;
 }
 
 .time-mode:hover{
-    color: green;
+    color: #00ff00;
     cursor: pointer;
+    transform: scale(1.3);
+}
+.restart:hover{
+    color: #00ff00;
+    cursor: pointer;
+    transform: scale(1.15);
 }
 
 .footer{
@@ -210,5 +212,74 @@ padding: 0 5px;
 .skipped{
      color: grey;
    }
+
+${'' /* ------------------------------------------------------------------------------- */}
+
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+.moving-border {
+  position: relative;
+  background: ${({ theme }) => theme.background};
+}
+.moving-border::before,
+.moving-border::after {
+  content: "";
+  position: absolute;
+  inset: -0.2rem;
+  z-index: -1;
+  border-radius: 10px;
+  background: linear-gradient(var(--angle), #fb0094, #0000ff, #00ff00,#ffff00, #ff0000, #fb0094, #0000ff, #00ff00,#ffff00, #ff0000);
+  animation: rotate 10s linear infinite;
+}
+.moving-border::after {
+  filter: blur(10px);
+}
+@keyframes rotate {
+  0%     { --angle: 0deg; }
+  100%   { --angle: 360deg;
+  }
+}
+
+${'' /* //----------------------------------------------------------------------------------------------- */}
+
+.block {
+	position: relative;
+	background: linear-gradient(0deg, #000, #272727);
+}
+
+.block:before, .block:after {
+	content: '';
+	position: absolute;
+	left: -2px;
+	top: -2px;
+	background: linear-gradient(45deg, #fb0094, #0000ff, #00ff00,#ffff00, #ff0000, #fb0094, 
+		#0000ff, #00ff00,#ffff00, #ff0000);
+	background-size: 400%;
+	width: calc(100% + 4px);
+	height: calc(100% + 4px);
+	z-index: -1;
+	animation: steam 20s linear infinite;
+}
+
+@keyframes steam {
+	0% {
+		background-position: 0 0;
+	}
+	50% {
+		background-position: 400% 0;
+	}
+	100% {
+		background-position: 0 0;
+	}
+}
+
+.block:after {
+	filter: blur(50px);
+}
+
 
 `;

@@ -1,5 +1,4 @@
-// import logo from "./logo.svg";
-// import "./App.css";
+
 import { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "./Styles/Global";
 
